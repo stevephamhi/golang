@@ -5,12 +5,15 @@ import (
 	"example/hello/cmd/api"
 	"example/hello/config"
 	"example/hello/db"
+	"fmt"
 	"log"
 
 	"github.com/go-sql-driver/mysql"
 )
 
 func main() {
+	fmt.Println(config.Envs.DBUser)
+
 	db, err := db.NewMySQLStorage(mysql.Config{
 		User:                 config.Envs.DBUser,
 		Passwd:               config.Envs.DBPassword,
